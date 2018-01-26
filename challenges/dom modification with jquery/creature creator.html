@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Spin-off of "Challenge: Creature creator"</title>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            .result {
+                font-size: 20px;
+                font-weight: bold;
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Creature Creator</h1>
+        
+        <p>What happens when you combine these two animals?</p>
+        <img src="https://www.kasandbox.org/programming-images/animals/komodo-dragon.png" height="150" alt="KOMODO">
+        <img src="https://www.kasandbox.org/programming-images/animals/fox.png" height="150" alt="FOX">
+        <p class="result">You get a komodofox</p>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+        <script>
+          var komododragonfoxanimal = $("<p>");
+          komododragonfoxanimal.text("You get a komododragonfoxanimal!")
+          $("body").append(komododragonfoxanimal);
+          komododragonfoxanimal.addClass("result")            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Spin-off of "Challenge: Sliding Snake"</title>
+        <style>
+            body {
+                background: white;
+                color: blue;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <strong>snek</strong>
+        <img id="snake-pic" src="https://upload.wikimedia.org/wikipedia/commons/4/40/Chrysopelea_taprobanica.jpg" width="400">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>
+            $("#snake-pic").hide();
+            $("#snake-text").hide(); 
+            var $dot = $("<strong>snake!!!</strong>");
+            $("#snake-pic").slideDown(1000, function() {
+                console.log(this.html("asdasd"));
+                console.log($("strong"));
+                this.append($dot.text());
+                this.append($("strong"));
+            });
+        </script>
+    </body>
+</html>

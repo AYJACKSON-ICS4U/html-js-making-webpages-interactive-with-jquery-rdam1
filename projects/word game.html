@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Word game </title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: #Fff;
+                box-shadow: 0 0 0px inset;
+                padding: 15px 10px 30px;
+            }
+            form {
+                font-size: 1.5em;
+            }
+            #input {
+                box-shadow: 2px 2px 20px;
+            }
+            #input:focus {
+                background: #333;
+            }
+            .scrambled, input, button {
+                font-family: monospace;
+                font-size: 2em;
+            }
+            #result {
+                font-size: 2em;
+                font-weight: bold;
+                font-family: monospace;
+                text-align: center;
+                background: #aaa;
+                box-shadow: 0 0 5px;
+                padding: 10px;
+                width: 80%;
+                margin: auto;
+            }
+            button {
+                margin: 20px 0;
+                border-radius: 10px;
+                background: #eee;
+            }
+            button:focus {
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Word game!</h1>
+        <form id="joke-form">
+            <label>
+                Unscramble these letters to form a word:<Br>
+                <span class="scrambled">AUIHHHCUA</span>
+                <br>
+                <input type="text" size="10" id="input">
+            </label>
+            <button type="submit">Check</button>
+        </form>
+        <div id="result"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>
+            $('#result').hide();
+            $('#joke-form').on("submit", function(e) {
+                e.preventDefault();
+                $('#result').hide();
+                $('button').css("background", "#9c9");
+                var answer = $('#input', this).val().toLowerCase();
+                if(answer === "chihuahua") {
+                    $('#result').text("You are correct").slideDown('slow');
+                } else {
+                    $('#result').text("NO.").slideDown('slow');
+                }
+                var changeColor = function() {
+                    $('button').css("background", "#6a6");
+                };
+                setTimeout(changeColor, 470);
+            });
+        </script>
+    </body>
+</html>

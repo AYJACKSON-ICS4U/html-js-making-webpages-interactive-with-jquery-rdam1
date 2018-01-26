@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Scene change</title>
+        <style>
+            #leafers {
+                position: absolute;
+                top: 118px;
+                left: 378px;
+            }
+            #pantsguy {
+                position: absolute;
+                top: 95px;
+                left: 244px;
+            }        
+        </style>
+    </head>
+    <body>
+        <img src="https://www.kasandbox.org/programming-images/landscapes/beach-at-dusk.png" id = "beach">
+        <img src="https://www.kasandbox.org/programming-images/avatars/mr-pants-pink.png" id="leafers">
+        <img src="https://www.kasandbox.org/programming-images/avatars/mr-pants.png" id="pantsguy">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>
+            $("#beach").on("click", function(event) {
+                $("#leafers").css("position", "absolute")
+                .css("top", event.pageY -150 + "px")
+                .css("left", event.pageX -20 +"px");
+                var $sound = $("<audio preload=auto>");
+                $sound.attr("src",
+                "https://www.kasandbox.org/programming-sounds/rpg/water-bubble.mp3");
+                $("img").on("click", function() {
+                    $("body").append($sound);
+                    $sound[0].play();
+                })
+                $("#pantsguy").on("click", function(event) {
+                    var imageChange = $("#pantsguy");
+                    imageChange.attr("src", "https://www.kasandbox.org/programming-images/avatars/mr-pants-with-hat.png");
+                });
+            });
+        </script>
+    </body>
+</html>

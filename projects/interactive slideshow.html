@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Interactive slideshow</title>
+        <style>
+        body{
+            border: 8px solid green;
+            background: rgb(112, 112, 112);
+        }
+        </style>
+    </head>
+    <body>
+        <div id="all">
+            <br>
+            <button type="button" id="prev"> ← Prev</button>
+            <button type="button" id="next">Next ➡</button>
+            <br><br>
+            <img src="https://www.kasandbox.org/programming-images/food/mushroom.png" id="first" width="400" alt="Mushrooms">
+            <img src="https://www.kasandbox.org/programming-images/landscapes/clouds-from-plane.png" id="second" width="400" alt="Sky">
+            <img src="https://www.kasandbox.org/programming-images/food/chocolates.png" id="third" width="200" alt="Food">
+            <img src="https://www.kasandbox.org/programming-images/food/potatoes.png" id="forth" width="400" alt="Pateto">
+            <img src="https://www.kasandbox.org/programming-images/seasonal/xmas-wreath.png" id="fifth" width="400" alt="Winter">
+            <br><br><br><br>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>
+        var currentImage = 1;
+        $("#first").hide();
+        $("#first").slideDown();
+        $("#second").hide();
+        $("#third").hide();
+        $("#forth").hide();
+        $("#fifth").hide();
+        $("#all").animate({
+            marginLeft: "50px",
+        });
+        $("#next").on("click", function(){
+           currentImage++;
+           if(currentImage == 6) currentImage = 1;
+           if(currentImage == 1) {
+               $("#fifth").hide();
+               $("#first").slideDown();
+               $("#first").animate({
+                   width: 600,
+                   marginLeft: "20px"
+               }, 2000);
+           } else
+           if(currentImage == 2){
+               $("#first").hide();
+               $("#second").fadeIn();
+           } else
+           if(currentImage == 3){
+               $("#second").hide();
+               $("#third").show();
+               $("#third").animate({
+                   width: 550
+               }, 2000);
+           } else
+           if(currentImage == 4){
+               $("#third").hide();
+               $("#forth").slideDown();
+           } else
+           if(currentImage == 5){
+               $("#forth").hide();
+               $("#fifth").fadeIn();
+           }
+
+        });
+
+        $("#prev").on("click", function(){
+           currentImage--;
+           if(currentImage == 0) currentImage = 5;
+           if(currentImage == 1) {
+               $("#second").hide();
+               $("#first").slideDown();
+               $("#first").animate({
+                   width: 600,
+                   marginLeft: "20px"
+               }, 2000);
+           }else 
+           if(currentImage == 2){
+               $("#third").hide();
+               $("#second").fadeIn();
+           }else 
+           if(currentImage == 3){
+               $("#forth").hide();
+               $("#third").show();
+               $("#third").animate({
+                   width: 550
+               }, 2000);
+           }else 
+           if(currentImage == 4){
+               $("#fifth").hide();
+               $("#forth").slideDown();
+           }else 
+           if(currentImage == 5){
+               $("#first").hide();
+               $("#fifth").fadeIn();
+           }
+        });
+        </script>
+    </body>
+</html>
